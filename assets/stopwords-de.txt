@@ -420,6 +420,7 @@ rechten
 rechter
 rechtes
 richtig
+rt
 rund
 s
 sa

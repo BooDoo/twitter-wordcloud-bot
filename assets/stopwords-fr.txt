@@ -355,6 +355,7 @@ r
 revoici
 revoilà
 rien
+rt
 s
 sa
 sacrebleu

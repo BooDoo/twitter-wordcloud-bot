@@ -121,6 +121,7 @@ doing
 don
 done
 don't
+dont
 down
 downwards
 due
@@ -432,6 +433,7 @@ resulted
 resulting
 results
 right
+rt
 run
 s
 said
@@ -584,6 +586,7 @@ unto
 up
 upon
 ups
+ur
 us
 use
 used
@@ -649,6 +652,7 @@ whos
 whose
 why
 widely
+will
 willing
 wish
 with
