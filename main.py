@@ -21,8 +21,8 @@ class TwitterWordCloudBot:
         # twitter name of the bot account
         self.BOT_NAME = settings.read_bot_name()
 
-        # hashtag to which this bot respond
-        self.WORDCLOUD_HASHTAG = settings.read_wordcloud_hashtag()
+        # hashtags to which this bot respond
+        self.WORDCLOUD_HASHTAGS = settings.read_wordcloud_hashtags()
 
         # max number of words displayed in the image
         self.MAX_WORDS = settings.read_max_words()
@@ -52,14 +52,14 @@ class TwitterWordCloudBot:
         return img_file
 
     @staticmethod
-    def _contains_hashtag(mention, hashtag):
+    def _contains_hashtag(mention, hashtags):
         """
         :param mention: mention object
-        :param hashtag: hashtag without the #, e.g.'wordcloud' not '#wordcloud' (string)
+        :param hashtags: list of hashtags without the #, e.g.'wordcloud' not '#wordcloud' (list of string)
         :return: True if the mention contains the hashtag, False otherwise
         """
         for h in mention['entities']['hashtags']:
-            if h['text'] == hashtag:
+            if h['text'] in hashtags:
                 return True
         return False
 
@@ -106,7 +106,7 @@ class TwitterWordCloudBot:
 
             status = '@' + screen_name + ' '
 
-            if self._contains_hashtag(mention, self.WORDCLOUD_HASHTAG):
+            if self._contains_hashtag(mention, self.WORDCLOUD_HASHTAGS):
                 if len(mention['entities']['user_mentions']) > 1:
                     # in the tweet, besides this bot mention, there's at least another one
                     user_name = self._get_first_mention(mention)

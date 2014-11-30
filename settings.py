@@ -67,8 +67,8 @@ class Settings(object):
     def read_bot_name(self):
         return self.config[self.CONFIGS]['botname']
 
-    def read_wordcloud_hashtag(self):
-        return self.config[self.CONFIGS]['wordcloudhashtag']
+    def read_wordcloud_hashtags(self):
+        return self.config[self.CONFIGS]['wordcloudhashtag'].split(',')
 
     def read_max_words(self):
         return int(self.config[self.CONFIGS]['maxwords'])

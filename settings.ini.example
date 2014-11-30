@@ -17,8 +17,8 @@ lastmentionid = 1
 # twitter name of the bot account e.g. wordnuvola
 botname = <your-bot-name>
 
-# hashtag to which this bot respond e.g. wordcloud
-wordcloudhashtag = <your-hashtag>
+# hashtags to which this bot respond (separated by ',') e.g. wordcloud,cloudword
+wordcloudhashtag = <your-hashtag>,<your-other-hashtag>
 
 # max number of words displayed in the image
 maxwords = 80
