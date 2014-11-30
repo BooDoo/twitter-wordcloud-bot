@@ -5,7 +5,7 @@ A Twitter bot that can build a word cloud image from the tweets of a Twitter use
 
 You can see it in action [here](https://twitter.com/wordnuvola). If you want a word cloud for you Twitter account,
 tweet "@wordnuvola #cloudword". If you want a word cloud for another Twitter accout, tweet
-"@wordnuvola #cloudword @<other-twitter-account>". You should get an answer in the next few minutes if the bot is
+"@wordnuvola #cloudword @\<other-twitter-account\>". You should get an answer in the next few minutes if the bot is
 online, otherwise you'll get it when the bot is turned on again.
 
 You can see all the word clouds images made so far here http://defacto133.imgur.com/all/
