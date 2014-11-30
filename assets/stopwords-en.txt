@@ -111,12 +111,14 @@ couldnt
 d
 date
 did
+didn
 didn't
 different
 do
 does
 doesn't
 doing
+don
 done
 don't
 down
@@ -189,8 +191,10 @@ had
 happens
 hardly
 has
+hasn
 hasn't
 have
+haven
 haven't
 having
 he
@@ -257,6 +261,7 @@ know
 known
 knows
 l
+ll
 largely
 last
 lately
