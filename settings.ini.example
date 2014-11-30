@@ -32,3 +32,6 @@ maxresults = 1000
 # width and height of the generated image
 width = 1280
 height = 960
+
+# string description for the uploaded image on imgur
+descriptionimagestr = (made with http://twitter.com/<your-bot-name>)
