@@ -1,0 +1,34 @@
+[twitter]
+consumerkey = <your-twitter-consumer-key>
+consumersecret = <your-twitter-consumer-secret>
+accesstoken = <your-twitter-access-token>
+accesstokensecret = <your-twitter-token-secret>
+
+[imgur]
+clientid = <your-imgur-client-id>
+clientsecret = <your-imgur-client-secret>
+accesstoken = <your-imgur-access-token>
+refreshtoken = <your-imgur-refresh-token>
+
+[configs]
+# you should leave this to 1 at the beginning, the application will update this automatically
+lastmentionid = 1
+
+# twitter name of the bot account e.g. wordnuvola
+botname = <your-bot-name>
+
+# hashtag to which this bot respond e.g. wordcloud
+wordcloudhashtag = <your-hashtag>
+
+# max number of words displayed in the image
+maxwords = 80
+
+# directory where images are saved
+outputdir = ./output
+
+# max number of tweets (including retweets) downloaded
+maxresults = 1000
+
+# width and height of the generated image
+width = 1280
+height = 960
