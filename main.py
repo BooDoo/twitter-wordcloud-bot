@@ -40,9 +40,15 @@ class TwitterWordCloudBot:
     def make_wordcloud(self, twitter_user):
         """ Build the word cloud png image of a twitter user
         :param twitter_user: name of the twitter account (string)
-        :return: path to the word cloud image (string)
+        :return: path to the word cloud image (string),
+                 None if an error occurs
         """
-        tweets = self.twitter_api.harvest_user_timeline(screen_name=twitter_user, max_results=self.MAX_RESULTS)
+        try:
+            tweets = self.twitter_api.harvest_user_timeline(screen_name=twitter_user, max_results=self.MAX_RESULTS)
+        except:
+            return None
+        if tweets == []:
+            return None
         words = self.clean_tweets(tweets)
         wordcloud = WordCloud(width=self.WIDTH, height=self.HEIGHT, max_words=self.MAX_WORDS) \
             .generate(' '.join(words))
@@ -52,14 +58,17 @@ class TwitterWordCloudBot:
         return img_file
 
     @staticmethod
-    def _contains_hashtag(mention, hashtags):
+    def _contains_hashtag(mention, hashtags, lowercase=True):
         """
         :param mention: mention object
         :param hashtags: list of hashtags without the #, e.g.'wordcloud' not '#wordcloud' (list of string)
+        :param lowercase: True if hashtags in the mention should be converted to lowercase before comparison
         :return: True if the mention contains the hashtag, False otherwise
         """
         for h in mention['entities']['hashtags']:
-            if h['text'] in hashtags:
+            if lowercase:
+                h = h.lower()
+            if h in hashtags:
                 return True
         return False
 
@@ -93,14 +102,15 @@ class TwitterWordCloudBot:
                 print("Handled {0} mention(s), enough!".format(max_mentions_to_handle))
                 break
 
-            print("Handling this mention: {0}".format(mention['text']))
-
+            print("Handling mention: {0},\nfrom: @{1},\nwith id: {2}".format(mention['text'],
+                                                                             mention['user']['screen_name'],
+                                                                             mention['id_str']))
             in_reply_to_status_id = mention['id_str']
             self.settings.write_last_mention_id(in_reply_to_status_id)
 
             screen_name = mention['user']['screen_name']
             if screen_name == self.BOT_NAME:
-                print("Skipping this self mention")
+                print("Skipping this self mention.\n")
                 mentions_handled += 1
                 continue
 
@@ -111,7 +121,7 @@ class TwitterWordCloudBot:
                     # in the tweet, besides this bot mention, there's at least another one
                     user_name = self._get_first_mention(mention)
                     if user_name is None:
-                        print("Error: couldn't extract a user mention, this is weird!")
+                        print("Error: couldn't extract a user mention, this is weird!\n")
                         mentions_handled += 1
                         continue
                     status += 'here\'s the word cloud for @' + user_name + ' '
@@ -119,27 +129,39 @@ class TwitterWordCloudBot:
                     user_name = screen_name
                     status += 'here\'s your word cloud '
                 img_file = self.make_wordcloud(user_name)
+                if img_file is None:
+                    print("Error: failed building the word cloud\n")
+                    mentions_handled += 1
+                    continue
                 title = 'Word cloud of http://twitter.com/' + user_name
                 try:
                     imgur_id = self.upload_image(img_file, title)['id']
                 except KeyError:
-                    print("Error: upload failed")
+                    print("Error: image upload failed\n")
                     mentions_handled += 1
                     continue
                 status += 'http://imgur.com/' + imgur_id
             else:
-                status += "See the instructions http://bit.ly/1v4ljkR"
+                print("Skipping this mention because there are no relevant hashtags.\n")
+                mentions_handled += 1
+                continue
 
             if len(status) <= 140:
                 try:
-                    self.reply_to(status, in_reply_to_status_id)
-                    print("Posted this tweet: {0}".format(status))
+                    result = self.reply_to(status, in_reply_to_status_id)
+                    if result is not None:
+                        print("Posted this tweet: {0}\n".format(status))
+                    else:
+                        print("Error: tweet post failed\n")
                 except TwitterHTTPError as e:
-                    print("Error: " + str(e))
+                    print("Error: " + str(e) + "\n")
+                except:
+                    print("Error: tweet post failed\n")
             else:
-                print("Error: This status was too long to be posted {0}".format(status))
+                print("Error: This status was too long to be posted {0}\n".format(status))
 
             mentions_handled += 1
+            time.sleep(30)
 
     def reply_to(self, status, in_reply_to_status_id):
         """
@@ -224,7 +246,7 @@ class TwitterWordCloudBot:
         """
         while True:
             self.handle_mentions(max_mentions_to_handle)
-            print("I'm going to sleep for {0} seconds".format(sleep_seconds))
+            print("I'm going to sleep for {0} seconds\n".format(sleep_seconds))
             time.sleep(sleep_seconds)
 
     def upload_image(self, image_path, title, max_errors=3, sleep_seconds=60):
@@ -256,6 +278,8 @@ class TwitterWordCloudBot:
 
                 time.sleep(sleep_seconds)
             except ImgurClientRateLimitError:
+                return None
+            except:
                 return None
 
 if __name__ == "__main__":
