@@ -1,6 +1,7 @@
 import os
 import re
 import time
+import html
 
 from imgurpython import ImgurClient
 from imgurpython.helpers.error import ImgurClientError, ImgurClientRateLimitError
@@ -189,7 +190,7 @@ class TwitterWordCloudBot:
             if text.find('RT @') == 0:
                 # ignore retweets
                 continue
-            text = self.clean(text)
+            text = self.clean_text(text)
 
             if 'lang' in t:
                 if t['lang'] in self.stopwords:
@@ -223,13 +224,13 @@ class TwitterWordCloudBot:
     P_links = re.compile(r'https?://.+?(\s|$)')
     P_symbols = re.compile(r'[^\w\s]')
     P_multispaces = re.compile(r'\s+')
-    def clean(self, text):
-        """ Remove emails (e.g. user@domain.com), tweet mentions (e.g. @user), urls, non-alphanumeric symbols
-            and collpase all multi-spaces into one.
+    def clean_text(self, text):
+        """ Unescape html entities, transform to lowercase, remove emails (e.g. user@domain.com),
+            tweet mentions (e.g. @user), urls, non-alphanumeric symbols and collpase all multi-spaces into one.
         :param text: text to clean
         :return: text cleaned
         """
-        text = text.lower()
+        text = html.unescape(text).lower()
         text = re.sub(self.P_emails, " ", text)
         text = re.sub(self.P_retweets, " ", text)
         text = re.sub(self.P_links, " ", text)
