@@ -116,6 +116,7 @@ didn't
 different
 do
 does
+doesn
 doesn't
 doing
 don
@@ -184,7 +185,9 @@ gives
 giving
 go
 goes
+going
 gone
+gonna
 got
 gotten
 h
@@ -211,6 +214,7 @@ hereupon
 hers
 herself
 hes
+hey
 hi
 hid
 him
@@ -242,6 +246,7 @@ into
 invention
 inward
 is
+isn
 isn't
 it
 itd
@@ -279,6 +284,7 @@ liked
 likely
 line
 little
+ll
 'll
 look
 looking
@@ -462,6 +468,7 @@ shed
 she'll
 shes
 should
+shouldn
 shouldn't
 show
 showed
@@ -611,6 +618,7 @@ w
 want
 wants
 was
+wasn
 wasn't
 way
 we
@@ -619,6 +627,7 @@ welcome
 we'll
 went
 were
+weren
 weren't
 we've
 what
@@ -658,10 +667,12 @@ wish
 with
 within
 without
+won
 won't
 words
 world
 would
+wouldn
 wouldn't
 www
 x
