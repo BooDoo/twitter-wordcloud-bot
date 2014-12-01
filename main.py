@@ -67,6 +67,7 @@ class TwitterWordCloudBot:
         :return: True if the mention contains the hashtag, False otherwise
         """
         for h in mention['entities']['hashtags']:
+            h = h['text']
             if lowercase:
                 h = h.lower()
             if h in hashtags:
