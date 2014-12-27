@@ -1,5 +1,4 @@
-﻿e
-able
+﻿able
 about
 above
 abst
@@ -62,6 +61,7 @@ away
 awfully
 b
 back
+bc
 be
 became
 because
@@ -84,6 +84,7 @@ besides
 between
 beyond
 biol
+bit
 both
 brief
 briefly
@@ -95,6 +96,7 @@ came
 can
 cannot
 can't
+cant
 cause
 causes
 certain
@@ -106,10 +108,12 @@ comes
 contain
 containing
 contains
+cos
 could
 couldnt
 d
 date
+day
 did
 didn
 didn't
@@ -175,6 +179,7 @@ from
 further
 furthermore
 g
+game
 gave
 get
 gets
@@ -188,8 +193,10 @@ goes
 going
 gone
 gonna
+good
 got
 gotten
+great
 h
 had
 happens
@@ -286,12 +293,15 @@ line
 little
 ll
 'll
+lol
 look
 looking
 looks
+lot
 ltd
 m
 made
+mate
 mainly
 make
 makes
@@ -365,6 +375,7 @@ ok
 okay
 old
 omitted
+omg
 on
 once
 one
@@ -393,6 +404,7 @@ part
 particular
 particularly
 past
+people
 per
 perhaps
 placed
@@ -516,6 +528,7 @@ t
 take
 taken
 taking
+tbh
 tell
 tends
 th
@@ -553,6 +566,8 @@ theyd
 they'll
 theyre
 they've
+thing
+things
 think
 this
 those
@@ -566,6 +581,7 @@ throughout
 thru
 thus
 til
+time
 tip
 to
 together
@@ -579,6 +595,7 @@ truly
 try
 trying
 ts
+tweet
 twice
 two
 u
@@ -615,6 +632,7 @@ vol
 vols
 vs
 w
+wanna
 want
 wants
 was
@@ -624,6 +642,7 @@ way
 we
 wed
 welcome
+well
 we'll
 went
 were
@@ -677,6 +696,7 @@ wouldn't
 www
 x
 y
+yeah
 yes
 yet
 you

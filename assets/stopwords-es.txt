@@ -178,9 +178,11 @@ lo
 los
 luego
 lugar
+máis
 más
 manera
 manifestó
+mas
 mayor
 me
 mediante
@@ -208,6 +210,7 @@ ningunas
 ninguno
 ningunos
 no
+non
 nos
 nosotras
 nosotros
@@ -315,6 +318,7 @@ también
 tampoco
 tan
 tanto
+te
 tenía
 tendrá
 tendrán
@@ -336,6 +340,7 @@ tras
 trata
 través
 tres
+tu
 tuvo
 un
 una

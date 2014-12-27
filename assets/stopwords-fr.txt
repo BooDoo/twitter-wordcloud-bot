@@ -40,10 +40,13 @@ bah
 beaucoup
 bien
 bigre
+bon
 boum
 bravo
 brrr
 c
+cc
+ca
 ça
 car
 ce
@@ -174,6 +177,7 @@ eux-mêmes
 excepté
 f
 façon
+faire
 fais
 faisaient
 faisant
@@ -211,6 +215,7 @@ il
 ils
 importe
 j
+jamais
 je
 jusqu
 jusque
@@ -285,6 +290,7 @@ ore
 ou
 où
 ouf
+oui
 ouias
 oust
 ouste
@@ -293,6 +299,7 @@ p
 paf
 pan
 par
+parler
 parmi
 partant
 particulier
@@ -359,6 +366,7 @@ rt
 s
 sa
 sacrebleu
+sais
 sans
 sapristi
 sauf
