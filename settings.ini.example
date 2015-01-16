@@ -1,10 +1,12 @@
 [twitter]
 consumerkey = <your-twitter-consumer-key>
 consumersecret = <your-twitter-consumer-secret>
+# accesstoken and accesstokensecret are optional, if you don't provide them the program will generate them for you
 accesstoken = <your-twitter-access-token>
 accesstokensecret = <your-twitter-token-secret>
 
 [imgur]
+# see https://api.imgur.com/oauth2
 clientid = <your-imgur-client-id>
 clientsecret = <your-imgur-client-secret>
 accesstoken = <your-imgur-access-token>

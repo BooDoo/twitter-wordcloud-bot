@@ -2,14 +2,21 @@ from http.client import BadStatusLine
 import time
 from urllib.error import URLError
 import twitter
+import os
 
 
 class TwitterApi():
-    def __init__(self, consumer_key, consumer_secret, access_token, access_token_secret):
+    def __init__(self, consumer_key, consumer_secret, access_token=None, access_token_secret=None):
         self.twitter_api = self.oauth_login(consumer_key, consumer_secret, access_token, access_token_secret)
 
     @staticmethod
     def oauth_login(consumer_key, consumer_secret, access_token, access_token_secret):
+        if not access_token or not access_token_secret:
+            oauth_file = './twitter_oauth'
+            if not os.path.exists(oauth_file):
+                twitter.oauth_dance("App", consumer_key, consumer_secret, oauth_file)
+            access_token, access_token_secret = twitter.read_token_file(oauth_file)
+
         auth = twitter.oauth.OAuth(access_token, access_token_secret,
                                    consumer_key, consumer_secret)
 
